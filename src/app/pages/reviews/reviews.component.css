@@ -1,0 +1,26 @@
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-33.33%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-66.66%);
+    }
+    100% {
+        transform: translateX(-33.33%);
+    }
+}
+
+.animate-scroll-left {
+    animation: scroll-left 45s linear infinite;
+}
+
+.animate-scroll-right {
+    animation: scroll-right 45s linear infinite;
+}
+

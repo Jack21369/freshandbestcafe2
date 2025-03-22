@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Add this at the top of your styles.css file */
+html {
+  scroll-behavior: smooth;
+}

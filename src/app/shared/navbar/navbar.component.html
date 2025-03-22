@@ -1,0 +1,24 @@
+<div class="navbar fixed w-full transition-all duration-300 z-[100] rounded-none pt-4 pb-4" [ngClass]="{'bg-transparent text-white': !isScrolled, 'bg-white text-black shadow-md': isScrolled}">
+    <div class="navbar-start pl-8">
+      <a href="#home" class="btn btn-ghost text-2xl font-[Poppins] ml-8">Fresh and Best Cafe 2</a>
+    </div>
+    <div class="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex">
+      <ul class="menu menu-horizontal px-1 space-x-12 text-lg">
+        <li><a href="#home" class="text-lg hover:text-red-500 transition-colors">Home</a></li>
+        <li><a href="#menu" class="text-lg hover:text-red-500 transition-colors">Menu</a></li>
+        <li><a href="#reviews" class="text-lg hover:text-red-500 transition-colors">Reviews</a></li>
+        <li><a href="#location" class="text-lg hover:text-red-500 transition-colors">Location</a></li>
+        <li><a href="#order" class="text-lg hover:text-red-500 transition-colors">Order</a></li>
+      </ul>
+    </div>
+    <div class="navbar-end pr-54">
+      <div class="flex items-center space-x-10">
+        <a href="https://www.yelp.com/biz/fresh-and-best-cafe-2-oakland" target="_blank" class="hover:opacity-80 transition-opacity">
+          <i class="fab fa-yelp text-3xl"></i>
+        </a>
+        <a href="https://maps.app.goo.gl/9WvqrVsYTiJx8GVq5" target="_blank" class="hover:opacity-80 transition-opacity">
+          <i class="fab fa-google text-3xl"></i>
+        </a>
+      </div>
+    </div>
+  </div>
