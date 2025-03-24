@@ -1,3 +1,14 @@
+/* Vendor-prefixed keyframes for scroll-left */
+@-webkit-keyframes scroll-left {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(-33.33%);
+        transform: translateX(-33.33%);
+    }
+}
 @keyframes scroll-left {
     0% {
         transform: translateX(0);
@@ -7,6 +18,17 @@
     }
 }
 
+/* Vendor-prefixed keyframes for scroll-right */
+@-webkit-keyframes scroll-right {
+    0% {
+        -webkit-transform: translateX(-66.66%);
+        transform: translateX(-66.66%);
+    }
+    100% {
+        -webkit-transform: translateX(-33.33%);
+        transform: translateX(-33.33%);
+    }
+}
 @keyframes scroll-right {
     0% {
         transform: translateX(-66.66%);
@@ -16,21 +38,28 @@
     }
 }
 
+/* Default animation settings for larger screens with vendor prefixes and will-change */
 .animate-scroll-left {
-    animation: scroll-left 45s linear infinite; /* Default speed for larger screens */
+    -webkit-animation: scroll-left 35s linear infinite;
+    animation: scroll-left 35s linear infinite;
+    will-change: transform;
 }
 
 .animate-scroll-right {
-    animation: scroll-right 45s linear infinite; /* Default speed for larger screens */
+    -webkit-animation: scroll-right 35s linear infinite;
+    animation: scroll-right 35s linear infinite;
+    will-change: transform;
 }
 
 /* Media query for mobile screens */
 @media (max-width: 640px) {
     .animate-scroll-left {
+        -webkit-animation: scroll-left 10s linear infinite; /* Faster speed for mobile */
         animation: scroll-left 10s linear infinite; /* Faster speed for mobile */
     }
 
     .animate-scroll-right {
+        -webkit-animation: scroll-right 10s linear infinite; /* Faster speed for mobile */
         animation: scroll-right 10s linear infinite; /* Faster speed for mobile */
     }
     

@@ -2,19 +2,19 @@
   <!-- Mobile View (Only visible on mobile) -->
   <div class="navbar-start lg:hidden flex items-center pl-2 sm:pl-4">
       <button class="btn btn-ghost" (click)="toggleMobileMenu()">
-          <i class="fas fa-bars text-2xl"></i>
+          <i class="fas fa-bars text-xl"></i>
       </button>
-      <a class="btn btn-ghost text-lg sm:text-2xl font-[Poppins] truncate ml-2">Fresh and Best Cafe 2</a>
+      <a class="btn btn-ghost text-base sm:text-lg font-[Poppins] truncate ml-2">Fresh and Best Cafe 2</a>
   </div>
 
   <!-- Desktop View - Logo (Left) -->
   <div class="hidden lg:flex navbar-start pl-6">
-      <a class="btn btn-ghost text-2xl font-[Poppins]">Fresh and Best Cafe 2</a>
+      <a class="btn btn-ghost text-xl font-[Poppins]">Fresh and Best Cafe 2</a>
   </div>
 
   <!-- Desktop Menu (Center) -->
   <div class="navbar-center hidden lg:flex">
-      <ul class="menu menu-horizontal px-1 space-x-8 lg:space-x-12 text-base lg:text-lg">
+      <ul class="menu menu-horizontal px-1 space-x-8 lg:space-x-12 text-sm lg:text-base">
           <li><a href="#home" class="hover:text-red-500 transition-colors">Home</a></li>
           <li><a href="#menu" class="hover:text-red-500 transition-colors">Menu</a></li>
           <li><a href="#reviews" class="hover:text-red-500 transition-colors">Reviews</a></li>
@@ -27,10 +27,10 @@
   <div class="navbar-end hidden lg:flex">
     <div class="flex h-full w-full items-center justify-center space-x-12">
         <a href="https://www.yelp.com/biz/fresh-and-best-cafe-2-oakland" target="_blank" class="hover:opacity-80 transition-opacity flex items-center">
-            <i class="fab fa-yelp text-2xl"></i>
+            <i class="fab fa-yelp text-xl"></i>
         </a>
         <a href="https://maps.app.goo.gl/9WvqrVsYTiJx8GVq5" target="_blank" class="hover:opacity-80 transition-opacity flex items-center">
-            <i class="fab fa-google text-2xl"></i>
+            <i class="fab fa-google text-xl"></i>
         </a>
       </div>
   </div>
@@ -47,19 +47,19 @@
    [ngClass]="{'translate-x-0': isMobileMenuOpen, 'translate-x-[-100%]': !isMobileMenuOpen}">
   <div class="p-4">
       <ul class="menu menu-vertical space-y-4 mt-16">
-          <li><a href="#home" class="text-lg" (click)="closeMobileMenu()">Home</a></li>
-          <li><a href="#menu" class="text-lg" (click)="closeMobileMenu()">Menu</a></li>
-          <li><a href="#reviews" class="text-lg" (click)="closeMobileMenu()">Reviews</a></li>
-          <li><a href="#location" class="text-lg" (click)="closeMobileMenu()">Location</a></li>
-          <li><a href="#order" class="text-lg" (click)="closeMobileMenu()">Order</a></li>
+          <li><a href="#home" class="text-base" (click)="closeMobileMenu()">Home</a></li>
+          <li><a href="#menu" class="text-base" (click)="closeMobileMenu()">Menu</a></li>
+          <li><a href="#reviews" class="text-base" (click)="closeMobileMenu()">Reviews</a></li>
+          <li><a href="#location" class="text-base" (click)="closeMobileMenu()">Location</a></li>
+          <li><a href="#order" class="text-base" (click)="closeMobileMenu()">Order</a></li>
       </ul>
       <!-- Social Icons (Mobile) -->
       <div class="flex items-center space-x-6 mt-8 justify-center">
           <a href="#" class="hover:opacity-80 transition-opacity">
-              <i class="fab fa-yelp text-2xl"></i>
+              <i class="fab fa-yelp text-xl"></i>
           </a>
           <a href="#" class="hover:opacity-80 transition-opacity">
-              <i class="fab fa-google text-2xl"></i>
+              <i class="fab fa-google text-xl"></i>
           </a>
       </div>
   </div>

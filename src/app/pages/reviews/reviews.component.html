@@ -1,94 +1,95 @@
 <div class="relative min-h-screen bg-white scroll-mt-16">
-    <div class="container mx-auto px-4 py-32">
-        <h2 class="text-3xl sm:text-4xl font-[Courgette] text-center mb-3 sm:mb-5 text-red-500">What People Say</h2>
+    <div class="container mx-auto px-4 py-24">
+        <h2 class="text-2xl sm:text-3xl font-[Courgette] text-center mb-3 sm:mb-5 text-red-500">What People Say</h2>
         <div class="flex items-center justify-center gap-4 sm:gap-8 mb-8 sm:mb-12">
             <div class="w-20 sm:w-40 h-[1px] bg-black"></div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-[Poppins] text-center font-bold tracking-[0.2em] sm:tracking-[0.3em]">REVIEWS</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-[Poppins] text-center font-bold tracking-[0.2em] sm:tracking-[0.3em]">REVIEWS</h2>
             <div class="w-20 sm:w-40 h-[1px] bg-black"></div>
         </div>
 
-        <!-- Yelp Reviews -->
-<div class="mb-8">
-    <h3 class="text-sm sm:text-lg font-[Poppins] text-center mb-4 flex items-center justify-center flex-wrap">
-        <span>Check us out on&nbsp;</span>
-        <a href="https://www.yelp.com/biz/fresh-and-best-cafe-2-oakland" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           class="flex items-center hover:opacity-80 transition-opacity">
-            <span>Yelp&nbsp;</span>
-            <i class="fab fa-yelp text-[#d32323] ml-1"></i>
-        </a>
-        <span>&nbsp;+&nbsp;</span>
-        <a href="https://maps.app.goo.gl/9WvqrVsYTiJx8GVq5" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           class="flex items-center hover:opacity-80 transition-opacity">
-            <span>Google&nbsp;</span>
-            <i class="fab fa-google text-[#4285F4] ml-1"></i>
-        </a>
-    </h3>
-    <div class="relative overflow-hidden">
-        <!-- Left fade -->
-        <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 hidden md:block"></div>
-        <!-- Right fade -->
-        <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 hidden md:block"></div>
-        
-        <div #yelpCarousel class="flex w-full p-3 sm:p-6">
-            <div class="flex animate-scroll-left">
-                @for (review of yelpReviews; track review.author) {
-                    <div class="carousel-item flex-none w-64 sm:w-80 md:w-96 px-2 sm:px-3">
-                        <div class="bg-white rounded-xl p-3 sm:p-6 shadow-md">
-                            <div class="flex items-center justify-between flex-row">
-                                <div class="flex text-yellow-400 mb-2 sm:mb-4">
-                                    @for (star of [1,2,3,4,5]; track star) {
-                                        <i class="fas fa-star text-sm sm:text-base"></i>
-                                    }
+       <!-- Yelp Reviews -->
+       <div class="mb-8">
+            <h4 class="text-xs sm:text-base font-[Poppins] text-center mb-4 flex items-center justify-center flex-wrap">
+                <span>Check us out on&nbsp;</span>
+                <a href="https://www.yelp.com/biz/fresh-and-best-cafe-2-oakland" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="flex items-center hover:opacity-80 transition-opacity">
+                    <span>Yelp&nbsp;</span>
+                    <i class="fab fa-yelp text-[#d32323] ml-1"></i>
+                </a>
+                <span>&nbsp;+&nbsp;</span>
+                <a href="https://maps.app.goo.gl/9WvqrVsYTiJx8GVq5" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="flex items-center hover:opacity-80 transition-opacity">
+                    <span>Google&nbsp;</span>
+                    <i class="fab fa-google text-[#4285F4] ml-1"></i>
+                </a>
+            </h4>
+            <div class="relative overflow-hidden">
+                <!-- Left fade -->
+                <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 hidden md:block"></div>
+                <!-- Right fade -->
+                <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 hidden md:block"></div>
+                
+                <div #yelpCarousel class="flex w-full p-3 sm:p-6">
+                    <div class="flex animate-scroll-left">
+                        @for (review of yelpReviews; track review.author) {
+                            <div class="carousel-item flex-none transform scale-95 w-64 sm:w-80 md:w-96 px-2 sm:px-3">
+                                <div class="bg-white rounded-xl p-3 sm:p-6 shadow-md">
+                                    <div class="flex items-center justify-between flex-row">
+                                        <div class="flex text-yellow-400 mb-2 sm:mb-4">
+                                            @for (star of [1,2,3,4,5]; track star) {
+                                                <i class="fas fa-star text-xs sm:text-sm"></i>
+                                            }
+                                        </div>
+                                        <i class="fab fa-yelp text-[#d32323] text-base sm:text-lg mb-2"></i>
+                                    </div>
+                                    <p class="text-gray-600 mb-2 sm:mb-4 text-xs sm:text-sm line-clamp-3 sm:line-clamp-none">{{ review.text }}</p>
+                                    <div class="flex items-center justify-between">
+                                        <p class="font-semibold text-xs sm:text-sm">{{ review.author }}</p>
+                                        <p class="text-xs sm:text-xs text-gray-500">{{ review.date | date:'mediumDate' }}</p>
+                                    </div>
                                 </div>
-                                <i class="fab fa-yelp text-[#d32323] text-lg sm:text-xl mb-2"></i>
                             </div>
-                            <p class="text-gray-600 mb-2 sm:mb-4 text-sm sm:text-base line-clamp-3 sm:line-clamp-none">{{ review.text }}</p>
-                            <div class="flex items-center justify-between">
-                                <p class="font-semibold text-sm sm:text-base">{{ review.author }}</p>
-                                <p class="text-xs sm:text-sm text-gray-500">{{ review.date | date:'mediumDate' }}</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Reviews -->
+        <div class="relative overflow-hidden">
+            <!-- Left fade -->
+            <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 hidden md:block"></div>
+            <!-- Right fade -->
+            <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 hidden md:block"></div>
+            
+            <div #googleCarousel class="flex w-full p-3 sm:p-6">
+                <div class="flex animate-scroll-right">
+                    @for (review of googleReviews; track review.author) {
+                        <div class="carousel-item flex-none transform scale-95 w-64 sm:w-80 md:w-96 px-2 sm:px-3">
+                            <div class="bg-white rounded-xl p-3 sm:p-6 shadow-md">
+                                <div class="flex items-center justify-between flex-row">
+                                    <div class="flex text-yellow-400 mb-2 sm:mb-4">
+                                        @for (star of [1,2,3,4,5]; track star) {
+                                            <i class="fas fa-star text-xs sm:text-sm"></i>
+                                        }
+                                    </div>
+                                    <i class="fab fa-google text-[#4285F4] text-base sm:text-lg mb-2"></i>
+                                </div>
+                                
+                                <p class="text-gray-600 mb-2 sm:mb-4 text-xs sm:text-sm line-clamp-3 sm:line-clamp-none">{{ review.text }}</p>
+                                <div class="flex items-center justify-between">
+                                    <p class="font-semibold text-xs sm:text-sm">{{ review.author }}</p>
+                                    <p class="text-xs sm:text-xs text-gray-500">{{ review.date | date:'mediumDate' }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
+                    }
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- Google Reviews -->
-<div class="relative overflow-hidden">
-    <!-- Left fade -->
-    <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 hidden md:block"></div>
-    <!-- Right fade -->
-    <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 hidden md:block"></div>
-    
-    <div #googleCarousel class="flex w-full p-3 sm:p-6">
-        <div class="flex animate-scroll-right">
-            @for (review of googleReviews; track review.author) {
-                <div class="carousel-item flex-none w-64 sm:w-80 md:w-96 px-2 sm:px-3">
-                    <div class="bg-white rounded-xl p-3 sm:p-6 shadow-md">
-                        <div class="flex items-center justify-between flex-row">
-                            <div class="flex text-yellow-400 mb-2 sm:mb-4">
-                                @for (star of [1,2,3,4,5]; track star) {
-                                    <i class="fas fa-star text-sm sm:text-base"></i>
-                                }
-                            </div>
-                            <i class="fab fa-google text-[#4285F4] text-lg sm:text-xl mb-2"></i>
-                        </div>
-                        
-                        <p class="text-gray-600 mb-2 sm:mb-4 text-sm sm:text-base line-clamp-3 sm:line-clamp-none">{{ review.text }}</p>
-                        <div class="flex items-center justify-between">
-                            <p class="font-semibold text-sm sm:text-base">{{ review.author }}</p>
-                            <p class="text-xs sm:text-sm text-gray-500">{{ review.date | date:'mediumDate' }}</p>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-</div>
 </div>
