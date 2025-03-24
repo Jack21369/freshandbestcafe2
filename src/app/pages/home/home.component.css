@@ -1,0 +1,51 @@
+/* Section padding class for direct application to components */
+.section-padding {
+    padding-left: 1rem;  /* 16px on mobile */
+    padding-right: 1rem;
+    padding-bottom: 3rem;
+    display: block;
+    width: 100%;
+}
+
+/* Responsive padding increases with screen size */
+@media (min-width: 640px) {
+    .section-padding {
+        padding-left: 1.5rem;  /* 24px on sm screens */
+        padding-right: 1.5rem;
+        padding-bottom: 4rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-padding {
+        padding-left: 3rem;    /* 48px on md screens */
+        padding-right: 3rem;
+        padding-bottom: 5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-padding {
+        padding-left: 4rem;    /* 64px on lg screens */
+        padding-right: 4rem;
+        padding-bottom: 6rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .section-padding {
+        padding-left: 6rem;    /* 96px on xl screens */
+        padding-right: 6rem;
+    }
+}
+
+/* Media query for mobile screens (existing code) */
+@media (max-width: 640px) {
+    .order-button {
+        padding: 1.5rem 1.5rem; /* Smaller padding for mobile */
+        font-size: 1rem; /* Smaller font size for mobile */
+    }
+}
+
+/* Alternatively, you can apply these styles directly in your component CSS files if you prefer */
+/* For example in menu.component.css, order.component.css, etc. */

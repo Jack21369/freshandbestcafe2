@@ -4,3 +4,16 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Add these global styles */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure all sections respect viewport width */
+div {
+  max-width: 100vw;
+}

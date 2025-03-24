@@ -1,0 +1,58 @@
+/* Navbar Layout Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Define flex distribution for navbar sections */
+.navbar-start {
+    flex: 1;
+}
+
+.navbar-center {
+    flex: 2;
+    justify-content: center;
+}
+
+.navbar-end {
+    flex: 1;
+    justify-content: center;    
+}
+
+/* Mobile styles */
+@media (max-width: 1023px) {
+    .navbar-start {
+        justify-content: flex-start;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .navbar {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    
+    .navbar-start {
+        justify-content: flex-start;
+        max-width: 33%;
+    }
+    
+    .navbar-center {
+        justify-content: center;
+    }
+    
+    .navbar-end {
+        justify-content: center;
+        max-width: 100%;
+    }
+}
+
+/* Fix for logo truncation */
+.navbar .btn-ghost {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

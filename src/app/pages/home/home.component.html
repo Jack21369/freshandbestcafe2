@@ -1,4 +1,4 @@
-<div id="home" class="relative min-h-screen bg-white scroll-mt-16">
+<div id="home" class="relative min-h-screen bg-white scroll-mt-16 overflow-x-hidden">
     <app-navbar></app-navbar>
     <!-- Background Image -->
     <div class="absolute inset-0">
@@ -12,18 +12,18 @@
     
     <!-- Content -->
     <div class="relative z-10 flex items-center justify-center min-h-screen">
-        <div class="text-center text-white px-16 font-[Poppins]">
-            <h1 class="text-7xl font-bold mb-6 font-[Courgette]">Welcome to </h1>
-            <h1 class="text-8xl font-bold mb-6 font-[Poppins]">Fresh and Best Cafe 2</h1>
-            <a href="#order" class="btn bg-white hover:bg-gray-200 border-none text-lg px-10 py-8 h-8 text-red-500 font-normal font-[Poppins] rounded-2xl mt-8">Order Now</a>
+        <div class="text-center text-white px-4 sm:px-8 md:px-16 font-[Poppins] max-w-full">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-3 sm:mb-6 font-[Courgette]">Welcome to</h1>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6 font-[Poppins] leading-tight">Fresh and Best Cafe 2</h1>
+            <a href="#order" class="btn bg-white hover:bg-gray-200 border-none text-lg px-10 py-8 h-8 text-red-500 font-normal font-[Poppins] rounded-2xl mt-8 order-button">Order Now</a>
         </div>
     </div>
 </div>
 
-<app-menu id="menu" class="scroll-mt-16"></app-menu>
+<app-menu id="menu" class="scroll-mt-16 section-padding"></app-menu>
 
-<app-order id="order" class="scroll-mt-16"></app-order>
+<app-order id="order" class="scroll-mt-16 section-padding"></app-order>
 
-<app-reviews id="reviews" class="scroll-mt-16"></app-reviews>
+<app-reviews id="reviews"></app-reviews>
 
-<app-location id="location" class="scroll-mt-16"></app-location>
+<app-location id="location" class="scroll-mt-16 section-padding"></app-location>
