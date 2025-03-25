@@ -42,7 +42,7 @@
 /* Media query for mobile screens (existing code) */
 @media (max-width: 640px) {
     .order-button {
-        padding: 1.5rem 1.5rem; /* Smaller padding for mobile */
+        padding: 1.25rem 1.25rem; /* Smaller padding for mobile */
         font-size: 1rem; /* Smaller font size for mobile */
     }
 }

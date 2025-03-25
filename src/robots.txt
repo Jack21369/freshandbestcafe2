@@ -1,0 +1,14 @@
+# robots.txt for Fresh and Best Cafe 2
+User-agent: *
+Allow: /
+
+# Allow Google Images to crawl images
+User-agent: Googlebot-Image
+Allow: /assets/
+
+# Allow Google to index everything
+User-agent: Googlebot
+Allow: /
+
+# Sitemap location
+Sitemap: https://freshnbestcafe2.web.app/sitemap.xml
