@@ -1,0 +1,117 @@
+<footer class="bg-gray-800 text-white pt-4 sm:pt-8 pb-3 sm:pb-6">
+  <div class="container mx-auto px-4">
+    <!-- Main content area -->
+    <div class="flex flex-wrap justify-around">
+      <!-- Logo and About -->
+      <div class="w-full sm:w-auto sm:max-w-xs mb-4 sm:mb-0">
+        <h3 class="text-lg sm:text-xl font-[Poppins] font-semibold mb-2 sm:mb-4">Fresh and Best Cafe 2</h3>
+        <p class="text-gray-300 text-xs sm:text-sm mb-2 sm:mb-4 max-w-xs">
+          Fresh ingredients, made to order, and served with a smile. Experience Vietnamese and Deli classics in Oakland.
+        </p>
+        <div class="flex space-x-4 mt-2">
+          <a href="https://www.yelp.com/biz/fresh-and-best-cafe-2-oakland" target="_blank" class="text-white hover:text-red-500 transition-colors">
+            <i class="fab fa-yelp text-base sm:text-lg"></i>
+          </a>
+          <a href="https://maps.app.goo.gl/9WvqrVsYTiJx8GVq5" target="_blank" class="text-white hover:text-blue-500 transition-colors">
+            <i class="fab fa-google text-base sm:text-lg"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="w-1/2 sm:w-auto mb-4 sm:mb-0">
+        <h3 class="text-base sm:text-lg font-[Poppins] font-semibold mb-2 sm:mb-4">Quick Links</h3>
+        <ul class="text-gray-300 text-xs sm:text-sm">
+          <li class="mb-1 sm:mb-2">
+            <a href="#home" class="hover:text-red-500 transition-colors">Home</a>
+          </li>
+          <li class="mb-1 sm:mb-2">
+            <a href="#menu" class="hover:text-red-500 transition-colors">Menu</a>
+          </li>
+          <li class="mb-1 sm:mb-2">
+            <a href="#reviews" class="hover:text-red-500 transition-colors">Reviews</a>
+          </li>
+          <li class="mb-1 sm:mb-2">
+            <a href="#location" class="hover:text-red-500 transition-colors">Location</a>
+          </li>
+          <li class="mb-1 sm:mb-2">
+            <a href="#order" class="hover:text-red-500 transition-colors">Order Online</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="w-1/2 sm:w-auto mb-4 sm:mb-0">
+        <h3 class="text-base sm:text-lg font-[Poppins] font-semibold mb-2 sm:mb-4">Contact Us</h3>
+        <ul class="text-gray-300 text-xs sm:text-sm">
+          <li class="mb-1 sm:mb-3 flex items-start">
+            <i class="fas fa-map-marker-alt mt-1 mr-2 text-red-500"></i>
+            <span>1428 Alice St, Oakland, CA 94612</span>
+          </li>
+          <li class="mb-1 sm:mb-3 flex items-start">
+            <i class="fas fa-phone-alt mt-1 mr-2 text-red-500"></i>
+            <a href="tel:(510) 836-7942" class="hover:text-red-500 transition-colors">(510) 836-7942</a>
+          </li>
+          <li class="mb-1 sm:mb-3 flex items-start email-container">
+            <i class="fas fa-envelope mt-1 mr-2 text-red-500"></i>
+            <a href="mailto:freshnbestcafe2&#64;gmail.com" class="hover:text-red-500 transition-colors email-text">freshnbestcafe2&#64;gmail.com</a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Hours -->
+      <div class="w-full sm:w-auto mb-4 sm:mb-0">
+        <h3 class="text-base sm:text-lg font-[Poppins] font-semibold mb-2 sm:mb-4">Hours</h3>
+        <div class="flex flex-wrap text-gray-300 text-xs">
+          <div class="w-full flex justify-between mb-1">
+            <span class="mr-4">Mon-Fri:</span>
+            <span>7:30AM - 6PM</span>
+          </div>
+          <div class="w-full flex justify-between mb-1">
+            <span class="mr-4">Sat:</span>
+            <span>8AM - 6PM</span>
+          </div>
+          <div class="w-full flex justify-between">
+            <span class="mr-4">Sun:</span>
+            <span>Closed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-gray-700 mt-4 sm:mt-8 pt-3 sm:pt-6 text-center text-2xs sm:text-xs text-gray-400">
+      <p>&copy; {{currentYear}} Fresh and Best Cafe 2. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Add this to your component's CSS or global styles */
+  @media (max-width: 640px) {
+    footer .text-2xs {
+      font-size: 0.65rem;
+    }
+    
+    footer .mb-1 {
+      margin-bottom: 0.15rem;
+    }
+    
+    footer .contact-address br {
+      display: none;
+    }
+    
+    /* Fix for email overflow on mobile */
+    footer .email-container {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+    
+    footer .email-text {
+      font-size: 0.7rem;
+      word-break: break-all;
+      display: inline-block;
+    }
+  }
+</style>
