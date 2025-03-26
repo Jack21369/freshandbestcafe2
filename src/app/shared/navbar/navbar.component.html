@@ -1,15 +1,15 @@
 <div class="navbar fixed w-full transition-all duration-300 z-[100] rounded-none pt-4 pb-4 overflow-x-hidden" [ngClass]="{'bg-transparent text-white': !isScrolled, 'bg-white text-black shadow-md': isScrolled}">
   <!-- Mobile View (Only visible on mobile) -->
   <div class="navbar-start lg:hidden flex items-center pl-2 sm:pl-4">
-      <button class="btn btn-ghost" (click)="toggleMobileMenu()">
+      <button class="btn btn-ghost" (click)="toggleMobileMenu()" aria-label="Toggle navigation menu">
           <i class="fas fa-bars text-xl"></i>
       </button>
-      <a class="btn btn-ghost text-base sm:text-lg font-[Poppins] truncate ml-2">Fresh and Best Cafe 2</a>
+      <a class="font-bold text-base sm:text-lg font-[Poppins] truncate ml-2">Fresh and Best Cafe 2</a>
   </div>
 
   <!-- Desktop View - Logo (Left) -->
   <div class="hidden lg:flex navbar-start pl-6">
-      <a class="btn btn-ghost text-xl font-[Poppins]">Fresh and Best Cafe 2</a>
+      <a class="text-xl font-bold font-[Poppins]">Fresh and Best Cafe 2</a>
   </div>
 
   <!-- Desktop Menu (Center) -->
@@ -26,10 +26,10 @@
   <!-- Social Icons (Desktop - Right) -->
   <div class="navbar-end hidden lg:flex">
     <div class="flex h-full w-full items-center justify-center space-x-12">
-        <a href="https://www.yelp.com/biz/fresh-and-best-cafe-2-oakland" target="_blank" class="hover:opacity-80 transition-opacity flex items-center">
+        <a href="https://www.yelp.com/biz/fresh-and-best-cafe-2-oakland" target="_blank" class="hover:opacity-80 transition-opacity flex items-center" aria-label="Explore Fresh and Best Cafe 2 on Yelp">
             <i class="fab fa-yelp text-xl"></i>
         </a>
-        <a href="https://maps.app.goo.gl/9WvqrVsYTiJx8GVq5" target="_blank" class="hover:opacity-80 transition-opacity flex items-center">
+        <a href="https://maps.app.goo.gl/9WvqrVsYTiJx8GVq5" target="_blank" class="hover:opacity-80 transition-opacity flex items-center" aria-label="Explore Fresh and Best Cafe 2 on Google Maps">
             <i class="fab fa-google text-xl"></i>
         </a>
       </div>
@@ -46,7 +46,7 @@
 <div class="fixed top-0 left-0 h-full w-64 bg-white z-[95] transform transition-transform duration-300 lg:hidden"
    [ngClass]="{'translate-x-0': isMobileMenuOpen, 'translate-x-[-100%]': !isMobileMenuOpen}">
   <div class="p-4">
-      <ul class="menu menu-vertical space-y-4 mt-16">
+      <ul class="menu menu-vertical space-y-6 mt-20">
           <li><a href="#home" class="text-base" (click)="closeMobileMenu()">Home</a></li>
           <li><a href="#menu" class="text-base" (click)="closeMobileMenu()">Menu</a></li>
           <li><a href="#reviews" class="text-base" (click)="closeMobileMenu()">Reviews</a></li>
@@ -54,11 +54,11 @@
           <li><a href="#order" class="text-base" (click)="closeMobileMenu()">Order</a></li>
       </ul>
       <!-- Social Icons (Mobile) -->
-      <div class="flex items-center space-x-6 mt-8 justify-center">
-          <a href="https://www.yelp.com/biz/fresh-and-best-cafe-2-oakland" target="_blank" class="hover:opacity-80 transition-opacity">
+      <div class="flex items-center space-x-10 mt-10 justify-center">
+          <a href="https://www.yelp.com/biz/fresh-and-best-cafe-2-oakland" target="_blank" class="hover:opacity-80 transition-opacity" aria-label="Explore Fresh and Best Cafe 2 on Yelp">
               <i class="fab fa-yelp text-xl"></i>
           </a>
-          <a href="https://maps.app.goo.gl/9WvqrVsYTiJx8GVq5" target="_blank" class="hover:opacity-80 transition-opacity">
+          <a href="https://maps.app.goo.gl/9WvqrVsYTiJx8GVq5" target="_blank" class="hover:opacity-80 transition-opacity" aria-label="Explore Fresh and Best Cafe 2 on Google Maps">
               <i class="fab fa-google text-xl"></i>
           </a>
       </div>
