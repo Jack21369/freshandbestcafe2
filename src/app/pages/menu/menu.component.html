@@ -1,393 +1,65 @@
 <div class="menu-container max-w-7xl mx-auto px-4 py-8">
-  <!-- First Row: Breakfast, Vietnamese Sandwich, Classic Sandwich -->
   <h2 class="text-2xl font-[Courgette] text-center mb-5 text-red-500">Explore</h2>
   <div class="flex items-center justify-center gap-8 mb-12">
-      <div class="w-40 h-[1px] bg-black"></div>
-      <h2 class="text-4xl font-[Poppins] text-center font-bold tracking-[0.3em]">OUR MENU</h2>
-      <div class="w-40 h-[1px] bg-black"></div>
+    <div class="w-40 h-[1px] bg-black"></div>
+    <h2 class="text-4xl font-[Poppins] text-center font-bold tracking-[0.3em]">OUR MENU</h2>
+    <div class="w-40 h-[1px] bg-black"></div>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-    <!-- Breakfast Column -->
-    <div class="menu-section">
-      <h2 class="text-xl font-bold mb-4">Breakfast</h2>
-      <div class="menu-items space-y-4">
-        <div class="menu-item">
-          <div class="flex justify-between">
-            <span class="font-medium">1. Egg & Cheese Sandwich</span>
+  
+  <!-- Category Navigation -->
+  <div class="flex justify-center flex-wrap gap-4 mb-8">
+    <button 
+      *ngFor="let category of categories" 
+      (click)="setActiveCategory(category.id)"
+      [class.bg-red-500]="activeCategory === category.id"
+      [class.text-white]="activeCategory === category.id"
+      class="px-4 py-2 rounded transition-colors">
+      {{category.name}}
+    </button>
+  </div>
+
+  <!-- Data-driven menu content -->
+  <div *ngFor="let category of menuData" class="menu-category">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      <div *ngFor="let section of category.sections" class="menu-section">
+        <h2 class="text-xl font-bold mb-4">
+          {{section.title}} 
+          <span *ngIf="section.priceInfo">{{section.priceInfo}}</span>
+        </h2>
+        <div *ngIf="section.description" class="text-xs text-gray-700 mb-4">{{section.description}}</div>
+        
+        <div class="menu-items space-y-4">
+          <div *ngFor="let item of section.items" class="menu-item">
+            <div class="flex justify-between">
+              <span class="font-medium">{{item.id}}. {{item.name}}</span>
+              <span *ngIf="item.price" class="font-medium">{{item.price}}</span>
+            </div>
+            
+            <div *ngIf="item.description" class="text-xs text-gray-700">{{item.description}}</div>
+            
+            <!-- Item options (e.g. different prices based on selection) -->
+            <ul *ngIf="item.options && item.options.length > 0" class="list-disc pl-6 text-xs text-gray-700">
+              <li *ngFor="let option of item.options">
+                {{option.name}} <span class="float-right font-medium">{{option.price}}</span>
+              </li>
+            </ul>
+            
+            <!-- Add-ons -->
+            <div *ngIf="item.addOns && item.addOns.length > 0" class="text-xs text-gray-700">
+              <div *ngFor="let addon of item.addOns">
+                {{addon.name}} <span class="float-right">{{addon.price}}</span>
+              </div>
+            </div>
           </div>
-          <ul class="list-disc pl-6 text-xs text-gray-700">
-            <li>On Bagel <span class="float-right font-medium">$5.45</span></li>
-            <li>On Croissant <span class="float-right font-medium">$6.50</span></li>
-          </ul>
-          <div class="text-xs text-gray-700">
-            <div>Add Turkey, Bacon or Pork Sausage <span class="float-right">+$1.25</span></div>
-            <div>Add Avocado <span class="float-right">+$1.50</span></div>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <div class="flex justify-between">
-            <span class="font-medium">2. Breakfast Wrap</span>
-            <span class="font-medium">$7.50</span>
-          </div>
-          <div class="text-xs text-gray-700">(spinach, egg, cheese, bacon, avocado & salsa)</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="flex justify-between">
-            <span class="font-medium">3. Bagel Club Sandwich</span>
-            <span class="font-medium">$7.25</span>
-          </div>
-          <div class="text-xs text-gray-700">(mayo, lettuce, tomato, avocado, turkey, bacon & cheese)</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="flex justify-between">
-            <span class="font-medium">4. Bagel Creamcheese</span>
-            <span class="font-medium">$3.50</span>
-          </div>
-        </div>
-      </div>
-
-      <h2 class="text-xl font-bold mt-8 mb-4">Green Salad</h2>
-      <div class="text-xs text-gray-700 mb-2">(romaine & spring mix, cucumber, tomato, onion, carrot, sunflower seeds. Served w/balsamic vinaigrette)</div>
-      <div class="menu-items space-y-2">
-        <div class="menu-item flex justify-between">
-          <span>1. Avocado</span>
-          <span class="font-medium">$9.95</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>2. Chicken</span>
-          <span class="font-medium">$11.75</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>3. Tuna</span>
-          <span class="font-medium">$11.25</span>
-        </div>
-      </div>
-
-      <h2 class="text-xl font-bold mt-8 mb-4">Vietnamese Salad</h2>
-      <div class="text-xs text-gray-700 mb-2">(shredded cabbage, celery, carrot, mint, cilantro, onion, lemon, peanut, dried shallots. Served with fish sauce)</div>
-      <div class="menu-items space-y-2">
-        <div class="menu-item flex justify-between">
-          <span>1. Tofu Salad</span>
-          <span class="font-medium">$11.50</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>2. Chicken Salad</span>
-          <span class="font-medium">$11.75</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>3. Shrimp Salad</span>
-          <span class="font-medium">$12</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Vietnamese Sandwich Column -->
-    <div class="menu-section">
-      <h2 class="text-xl font-bold mb-4">Vietnamese Sandwich $9.95</h2>
-      <div class="text-xs text-gray-700 mb-4">Include: mayo, cucumber, jalapeno, pickled carrot, soy sauce & cilantro</div>
-      <div class="menu-items space-y-2">
-        <div class="menu-item">1. Grilled Chicken</div>
-        <div class="menu-item">2. Spicy Chicken</div>
-        <div class="menu-item">3. Teriyaki Chicken</div>
-        <div class="menu-item">4. Grilled Pork*</div>
-        <div class="menu-item">5. BBQ Pork*</div>
-        <div class="menu-item">6. Coconut Pork* <span class="text-xs text-gray-700">(pork stewed in coconut juice)</span></div>
-        <div class="menu-item">7. Combo* <span class="text-xs text-gray-700">(cold cuts of pork roll, ham & headcheese)</span></div>
-      </div>
-      <div class="text-xs text-gray-700 mt-2 italic">*Pate (pork liver paste will be included in pork sandwiches)</div>
-
-      <h2 class="text-xl font-bold mt-8 mb-4">Vegetarian Sandwich $9.95</h2>
-      <div class="text-xs text-gray-700 mb-4">Include: mayo, cucumber, jalapeno, pickled carrot, soy sauce & cilantro</div>
-      <div class="menu-items space-y-2">
-        <div class="menu-item">1. Spicy Lemongrass Seitan</div>
-        <div class="menu-item">2. Tofu Mushroom</div>
-        <div class="menu-item">3. Curry Tofu Sheets</div>
-      </div>
-
-      <h2 class="text-xl font-bold mt-8 mb-4">Vermicelli Bowl $11.95</h2>
-      <div class="text-xs text-gray-700 mb-4">(shredded lettuce, cucumber, mint, cilantro, pickled carrot, peanut, dried shallot. Served with fish sauce)</div>
-      <div class="menu-items space-y-2">
-        <div class="menu-item">1. Chicken</div>
-        <div class="menu-item">2. Pork</div>
-        <div class="menu-item">3. Tofu</div>
-      </div>
-    </div>
-
-    <!-- Classic Sandwich Column -->
-    <div class="menu-section">
-      <h2 class="text-xl font-bold mb-4">Classic Sandwich</h2>
-      <div class="text-xs text-gray-700 mb-4">Choice of Breads: sliced wheat bread, French Roll or Dutch Crunch Roll</div>
-      <div class="text-xs text-gray-700 mb-4">Include: mayo, mustard, lettuce, tomato, pickle & onion</div>
-      
-      <div class="menu-items space-y-2">
-        <div class="menu-item flex justify-between">
-          <span>1. Turkey Breast</span>
-          <span class="font-medium">$7.95</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>2. Roasted Chicken</span>
-          <span class="font-medium">$8.95</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>3. Ham</span>
-          <span class="font-medium">$7.50</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>4. Veggie & Avocado</span>
-          <span class="font-medium">$7.95</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>5. Club (bacon, turkey & cheese)</span>
-          <span class="font-medium">$9.25</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>6. Tuna</span>
-          <span class="font-medium">$7.95</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>7. BLT (with mayo)</span>
-          <span class="font-medium">$7.25</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>8. *Roast Beef</span>
-          <span class="font-medium">$9.25</span>
-        </div>
-      </div>
-      <div class="text-xs text-gray-700 mt-2">(horseradish, honey mustard, spring mix, tomato, onion & Swiss cheese)</div>
-      
-      <div class="mt-4">
-        <div class="font-medium">Add-ons:</div>
-        <div class="text-xs text-gray-700">+ cheese for $1.00</div>
-        <div class="text-xs text-gray-700">(American, Pepper Jack, Swiss, Cheddar)</div>
-        <div class="text-xs text-gray-700">+ avocado for $1.50</div>
-      </div>
-
-      <h2 class="text-xl font-bold mt-8 mb-4">Wrap $9.95</h2>
-      <div class="menu-items space-y-4">
-        <div class="menu-item">
-          <div class="font-medium">1. California Wrap</div>
-          <div class="text-xs text-gray-700">(spring mix, spicy mayo, turkey, cheese, bacon, avocado, & tomato)</div>
-        </div>
-        <div class="menu-item">
-          <div class="font-medium">2. Apple Tuna Wrap</div>
-          <div class="text-xs text-gray-700">(spring mix, cheese, onion, carrot, tomato, apple & tuna mix)</div>
-        </div>
-        <div class="menu-item">
-          <div class="font-medium">3. Chicken & Avocado Wrap</div>
-          <div class="text-xs text-gray-700">(spring mix, spicy mayo, chicken, avocado, carrot, tomato, cucumber, jalapeno, & onion)</div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Second Row: Asian Kale Salad, Summer Rolls, Rice Plate -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-    <!-- Asian Kale Salad Column -->
-    <div class="menu-section">
-      <h2 class="text-xl font-bold mb-4">Asian Kale Salad</h2>
-      <div class="text-xs text-gray-700 mb-4">(chopped kale & romaine lettuce, carrot, dried cranberry, toasted walnut & crunchy noodles. Served with sesame dressing)</div>
-      <div class="menu-items space-y-2">
-        <div class="menu-item flex justify-between">
-          <span>1. Avocado</span>
-          <span class="font-medium">$9.95</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>2. Teriyaki Chicken</span>
-          <span class="font-medium">$11.75</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>3. Tofu</span>
-          <span class="font-medium">$11.50</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>4. Tuna</span>
-          <span class="font-medium">$11.25</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Summer Rolls Column -->
-    <div class="menu-section">
-      <h2 class="text-xl font-bold mb-4">Summer Rolls (3)</h2>
-      <div class="text-xs text-gray-700 mb-4">(lettuce, vermicelli, mint, cilantro & pickled carrot in rice paper wraps. Served with peanut dipping sauce)</div>
-      <div class="menu-items space-y-2">
-        <div class="menu-item flex justify-between">
-          <span>1. Shrimp Rolls</span>
-          <span class="font-medium">$10</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>2. Chicken Rolls</span>
-          <span class="font-medium">$10</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>3. Tofu Rolls</span>
-          <span class="font-medium">$10</span>
-        </div>
-        <div class="menu-item flex justify-between">
-          <span>4. Avocado Rolls</span>
-          <span class="font-medium">$10</span>
-        </div>
-      </div>
-      <div class="text-xs text-gray-700 mt-2">+ avocado for $1.50</div>
-    </div>
-
-    <!-- Rice Plate Column -->
-    <div class="menu-section">
-      <h2 class="text-xl font-bold mb-4">Rice Plate $12.95</h2>
-      <div class="menu-items space-y-2">
-        <div class="menu-item">1. Grilled Chicken</div>
-        <div class="menu-item">2. Grilled Pork</div>
-        <div class="menu-item">3. Chicken & Pork</div>
-      </div>
-      <div class="text-xs text-gray-700 mt-2">Add a fried egg for $1.50</div>
-    </div>
-  </div>
-
-  <!-- Third Row: Fresh Juice, Green Smoothie, Classic Smoothie -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <!-- Fresh Juice Column -->
-    <div class="menu-section">
-      <h2 class="text-xl font-bold mb-4">Fresh Juice (20oz)</h2>
-      <div class="menu-items space-y-2">
-        <div class="menu-item flex justify-between">
-          <span>1. Mixed Vegetable</span>
-          <span class="font-medium">$7.25</span>
-        </div>
-        <div class="text-xs text-gray-700">(apple, carrot, beet & ginger)</div>
-        
-        <div class="menu-item flex justify-between mt-2">
-          <span>2. Radiant Juice</span>
-          <span class="font-medium">$7.25</span>
-        </div>
-        <div class="text-xs text-gray-700">(apple, orange, carrot & ginger)</div>
-        
-        <div class="menu-item flex justify-between mt-2">
-          <span>3. Cleansing Juice</span>
-          <span class="font-medium">$7.25</span>
-        </div>
-        <div class="text-xs text-gray-700">(carrot, beet, cucumber & parsley)</div>
-        
-        <div class="menu-item flex justify-between mt-2">
-          <span>4. Double Spicy Juice with ice</span>
-          <span class="font-medium">$7.25</span>
-        </div>
-        <div class="text-xs text-gray-700">(apple, lemon, beet, ginger & cayenne pepper)</div>
-        
-        <div class="menu-item flex justify-between mt-2">
-          <span>5. Mean Green Juice</span>
-          <span class="font-medium">$7.95</span>
-        </div>
-        <div class="text-xs text-gray-700">(kale, cucumber, celery, apple, lemon & ginger)</div>
-        
-        <div class="menu-item flex justify-between mt-2">
-          <span>6. Green Power Juice</span>
-          <span class="font-medium">$7.95</span>
-        </div>
-        <div class="text-xs text-gray-700">(spinach, kale, ginger, carrot & apple)</div>
-        
-        <div class="menu-item flex justify-between mt-2">
-          <span>7. Orange, Carrot & Ginger</span>
-          <span class="font-medium">$6.95</span>
-        </div>
-        
-        <div class="menu-item flex justify-between mt-2">
-          <span>8. The Mixed Green</span>
-          <span class="font-medium">$7.95</span>
-        </div>
-        <div class="text-xs text-gray-700">(apple, pear, cucumber, kale & mint)</div>
-        
-        <div class="menu-item flex justify-between mt-2">
-          <span>9. Pineapple Sunrise with ice</span>
-          <span class="font-medium">$8.25</span>
-        </div>
-        <div class="text-xs text-gray-700">(pineapple, apple, beet, orange & cayenne pepper)</div>
-        
-        <div class="menu-item flex justify-between mt-2">
-          <span>10. All Green Juice</span>
-          <span class="font-medium">$8.25</span>
-        </div>
-        <div class="text-xs text-gray-700">(spinach, kale, parsley, cucumber & celery)</div>
-      </div>
-    </div>
-
-    <!-- Green & Acai Column -->
-    <div class="menu-section">
-      <h2 class="text-xl font-bold mb-4">Green Smoothie</h2>
-      <div class="menu-items space-y-4">
-        <div class="menu-item">
-          <div class="flex justify-between">
-            <span>1. Pineapple Coconut</span>
-            <span class="font-medium">$7.25</span>
-          </div>
-          <div class="text-xs text-gray-700">(coconut water, coconut milk, kale, cashew, honey & pineapple. Garnish with coconut flakes)</div>
-        </div>
-        
-        <div class="menu-item">
-          <div class="flex justify-between">
-            <span>2. Tropical Green</span>
-            <span class="font-medium">$6.75</span>
-          </div>
-          <div class="text-xs text-gray-700">(spinach, parsley, banana, mango, pineapple w/soy milk)</div>
-        </div>
-        
-        <div class="menu-item">
-          <div class="flex justify-between">
-            <span>3. Blueberry Avocado</span>
-            <span class="font-medium">$6.75</span>
-          </div>
-          <div class="text-xs text-gray-700">(spinach, avocado, blueberry, whey protein powder w/ almond milk)</div>
-        </div>
-        
-        <div class="menu-item">
-          <div class="flex justify-between">
-            <span>4. Minty Peach Pineapple</span>
-            <span class="font-medium">$7.25</span>
-          </div>
-          <div class="text-xs text-gray-700">(orange, vanilla yogurt, kale, mint, honey, peach & pineapple)</div>
-        </div>
-        
-        <div class="menu-item">
-          <div class="flex justify-between">
-            <span>5. Ginger Peach</span>
-            <span class="font-medium">$6.75</span>
-          </div>
-          <div class="text-xs text-gray-700">(almond milk, spinach, honey, ginger & peach)</div>
-        </div>
-      </div>
-
-      <h2 class="text-xl font-bold mt-8 mb-2">Acai Bowl $12.99</h2>
-      <div class="text-xs text-gray-700">(22oz)</div>
-      <div class="text-xs text-gray-700 mt-2">
-        Blend of organic acai, vanilla yogurt, banana, mango & pineapple with almond milk.
-      </div>
-      <div class="text-xs text-gray-700 mt-2">
-        Topping with granola, banana slices, berries, coconut flakes & honey
-      </div>
-    </div>
-
-    <!-- Classic Smoothie Column -->
-    <div class="menu-section">
-      <h2 class="text-xl font-bold mb-4">Classic Smoothie</h2>
-      <div class="text-gray-700 mb-4 italic">Blend with apple juice</div>
-      <div class="font-medium mb-4">16oz - $ 5.95 / 20oz - $ 6.75</div>
-      
-      <div class="menu-items space-y-2">
-        <div class="menu-item">1. Banana, Strawberry</div>
-        <div class="menu-item">2. Peach, Pineapple</div>
-        <div class="menu-item">3. Mango, Strawberry</div>
-        <div class="menu-item">4. Mango, Pineapple</div>
-        <div class="menu-item">5. Strawberry, Pineapple</div>
-        <div class="menu-item">6. Mixed berries</div>
-      </div>
-
-      <div class="mt-8 text-center text-gray-700">
-        To place a large order, please allow 3 days advance notice.
-      </div>
-      <div class="mt-4 text-center">*</div>
-    </div>
+  
+  <!-- General disclaimer at the bottom of the menu -->
+  <div class="text-center text-gray-700 mt-8 mb-4 border-t pt-6">
+    <p class="italic">{{generalDisclaimer}}</p>
+    <div class="mt-2">*</div>
   </div>
 </div>
 
