@@ -4,13 +4,13 @@ Website for Fresh & Best Cafe 2 in Oakland, CA.
 
 ## Live Website
 
-[https://freshnbestcafe2.com](https://freshnbestcafe2.com)
+[https://freshandbestcafe2.com](https://freshandbestcafe2.com)
 
 ## Features
 
 - Menu display with food categories
 - Online ordering via phone and Clover
-- Delivery service integrations
+- Delivery service Options
 - Mobile-responsive design
 
 ## Development
