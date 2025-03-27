@@ -1,59 +1,42 @@
-# Freshnbestcafe2
+# Fresh & Best Cafe 2
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Website for Fresh & Best Cafe 2 in Oakland, CA.
 
-## Development server
+## Live Website
 
-To start a local development server, run:
+[https://freshnbestcafe2.com](https://freshnbestcafe2.com)
+
+## Features
+
+- Menu display with food categories
+- Online ordering via phone and Clover
+- Delivery service integrations
+- Mobile-responsive design
+
+## Development
+
+Prerequisites: Node.js, npm, Angular CLI (v19.2.1)
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
+# Build for production
 ng build
+
+# Deploy to Firebase
+firebase deploy
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Project Structure
 
-## Running unit tests
+- `src/app/components/` - UI components
+- `src/app/pages/` - Page components
+- `src/app/shared/assets/` - Images and assets
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## SEO
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Meta tags are in `src/index.html` (Open Graph & Twitter Card).
